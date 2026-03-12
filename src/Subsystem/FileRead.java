@@ -13,26 +13,32 @@ import java.io.FileReader;
  */
 public class FileRead {
 
-    BufferedReader lector;
-    FileReader archivo;
+    public String readFile() {
 
-    public FileRead() {
+        BufferedReader lector;
+        FileReader archivo;
+        String contenido = "";
+
         try {
-            archivo = new FileReader("D:/Descargas/TextoPrueba.txt");
-            if (archivo.ready()) {
-                lector = new BufferedReader(archivo);
-                String cadena;
-                while ((cadena = lector.readLine()) != null) {
-                    System.out.println(cadena);
 
-                }
-            }else{
-                System.out.println("El archivo no está listo para ser leido...");
+            archivo = new FileReader("D:/Descargas/TextoPrueba.txt");
+            lector = new BufferedReader(archivo);
+
+            String cadena;
+
+            while ((cadena = lector.readLine()) != null) {
+                contenido += cadena;
             }
 
+            lector.close();
+
         } catch (Exception e) {
+
             System.out.println("Error: " + e.getMessage());
+
         }
+
+        return contenido;
 
     }
 

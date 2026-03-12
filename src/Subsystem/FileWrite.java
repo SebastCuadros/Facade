@@ -15,24 +15,21 @@ import java.util.Scanner;
  */
 public class FileWrite {
 
-    FileWriter archivo = null;
-    PrintWriter escribir = null;
-    String texto = null;
-    Scanner leer = new Scanner(System.in);
+    public void writeFile(String path, String texto) {
 
-    public FileWrite() throws IOException {
         try {
-            archivo = new FileWriter("D:/Descargas/TextoPrueba.txt");
-            escribir = new PrintWriter(archivo);
 
-            System.out.println("Escriba el contenido del archivo: ");
-            texto = leer.nextLine();
+            FileWriter archivo = new FileWriter(path);
+            PrintWriter escribir = new PrintWriter(archivo);
+
             escribir.println(texto);
 
+            escribir.close();
+
         } catch (Exception e) {
+
             System.out.println("Error: " + e.getMessage());
-        }finally{
-            archivo.close();
+
         }
 
     }

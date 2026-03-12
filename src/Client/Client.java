@@ -8,6 +8,23 @@ package Client;
  *
  * @author sebas
  */
+import Facade.Facade;
+
 public class Client {
-    
+
+    public static void main(String[] args) {
+
+        String path = "D:/Descargas/TextoPrueba.txt";
+        String texto = "Hola patron Facade";
+
+        Facade facade = Facade.getInstance();
+
+        facade.writeEncrypted(path, texto);
+
+        String contenido = facade.readDecrypted();
+
+        System.out.println(contenido);
+
+    }
+
 }
